@@ -4,30 +4,24 @@ using namespace std;
 
 class Circle
 {
-	int radius; // 디폴트값은 private
-
-	/*
-	private:
-		int radius; 는 위 코드와 같은 의미
-	*/
+private:
+	int radius;
 
 public:
 	double getArea();
 
 	Circle();
-	Circle(int r);
+	Circle(int r) // 인라인함수의 예 1
+	{
+		radius = r;
+		cout << "반지름 " << radius << " 원 생성" << endl;
+	}
 	~Circle();
 };
 
-Circle::Circle()
+inline Circle::Circle() // 인라인함수의 예 2
 {
 	radius = 1;
-	cout << "반지름 " << radius << " 원 생성" << endl;
-}
-
-Circle::Circle(int r)
-{
-	radius = r;
 	cout << "반지름 " << radius << " 원 생성" << endl;
 }
 
@@ -43,6 +37,5 @@ Circle::~Circle()
 
 int main()
 {
-	Circle waffle(5); // 생성자에서 radius 접근가능
-	waffle.radius = 5; // private 멤버 접근 불가
+
 }
